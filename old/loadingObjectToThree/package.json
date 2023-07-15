@@ -1,0 +1,16 @@
+{
+  "name": "loadingobjecttothree",
+  "version": "1.0.0",
+  "description": "",
+  "main": "modules/TDSLoader.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "quaternion": "^1.1.0",
+    "socket.io-client": "^3.0.4",
+    "three-mtl-loader": "^1.0.2"
+  }
+}
