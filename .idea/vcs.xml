@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="VcsDirectoryMappings">
-    <mapping directory="" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/ExpoTestApp" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/new/client/spp" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/old/ExpoTestApp" vcs="Git" />
-  </component>
-</project>
