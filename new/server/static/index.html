@@ -1,0 +1,19 @@
+<html>
+  <head></head>
+  <body>
+      <h1>
+         Hello world 2
+      </h1>
+  </body>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    var socket = io();
+
+    socket.on("get_accelerometer", data => {
+      console.log(data)
+    })
+
+    socket.emit("message", "I am Andrey")
+  </script>
+</html>

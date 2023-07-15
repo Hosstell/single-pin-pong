@@ -1,1 +1,2 @@
-# single-pin-pong
+# hands-on-games
+
