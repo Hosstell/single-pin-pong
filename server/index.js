@@ -15,9 +15,10 @@ app.get('/', (req, res) => {
 io.on('connection', (socket) => {
   console.log('a user connected');
 
-  socket.on("send_accelerometer_data", data => {
-    io.emit("get_accelerometer_data", data)
-  })
+  // socket.on("send_accelerometer_data", data => {
+  //   io.emit("get_accelerometer_data", data)
+  // })
+
   socket.on("send_gyroscope_data", data => {
     io.emit("get_gyroscope_data", data)
   })
