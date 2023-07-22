@@ -8,6 +8,8 @@ import ThreejsSystemInitBall from "./systems/ThreejsSystemInitBall.js";
 import ThreejsSystemInitLights from "./systems/ThreejsSystemInitLights.js";
 import ThreejsSystemRocketRotation from "./systems/ThreejsSystemRocketRotation.js";
 import ThreejsSystemRocketMovement from "./systems/ThreejsSystemRocketMovement.js";
+import ThreejsSystemPhysicsInit from "./systems/ThreejsSystemPhysicsInit.js";
+
 
 var systems = new System()
 
@@ -18,7 +20,8 @@ systems.addSystem(new ThreejsSystemInitScene())
 systems.addSystem(new ThreejsSystemInitLights())
 systems.addSystem(new ThreejsSystemInitRocket())
 systems.addSystem(new ThreejsSystemInitBall())
-systems.addSystem(new ThreejsSystemInitBall())
+systems.addSystem(new ThreejsSystemPhysicsInit())
+
 systems.addSystem(new ThreejsSystemRocketRotation())
 systems.addSystem(new ThreejsSystemRocketMovement())
 systems.addSystem(new ThreejsSystemRunAnimation())

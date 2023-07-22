@@ -2,6 +2,7 @@ const data = {
   socket: undefined,
   gyroscopeActions: [],
   accelerometerActions: [],
+  physics: undefined,
   threejs: {
     scene: undefined,
     camera: undefined,

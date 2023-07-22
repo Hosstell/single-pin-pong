@@ -1,4 +1,5 @@
 import data from "../data.js";
+import * as THREE from 'three';
 
 export default class ThreejsSystemInitLights {
   init() {
