@@ -1,6 +1,4 @@
 import data from "../data.js";
-import CANNON from 'cannon';
-import { threeToCannon, ShapeType } from 'three-to-cannon';
 import * as THREE from 'three';
 
 function sleep(ms) {
@@ -8,7 +6,6 @@ function sleep(ms) {
 }
 
 export default class ThreejsSystemPhysicsInit2 {
-
   constructor() {
     this.ball = null
     this.rocket = null
@@ -33,7 +30,6 @@ export default class ThreejsSystemPhysicsInit2 {
 
   physicsStep() {
     const raycaster = new THREE.Raycaster();
-
     raycaster.set(
         data.threejs.objects.ball.position,
         new THREE.Vector3(0, -1, 0),
@@ -41,11 +37,9 @@ export default class ThreejsSystemPhysicsInit2 {
 
     let intersects = raycaster.intersectObject(this.rocket, true)
     if (intersects.length) {
-
       let item = intersects[0]
 
       if (item.distance < 0.01) {
-
         let obj = item.object;
         let a = new THREE.Vector3()
         let b = new THREE.Vector3()

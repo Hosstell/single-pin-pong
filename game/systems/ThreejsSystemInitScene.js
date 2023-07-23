@@ -1,5 +1,6 @@
 import data from "../data.js";
 import * as THREE from 'three';
+import {OrbitControls} from "three/addons/controls/OrbitControls";
 
 export default class ThreejsSystemInitScene {
   init() {
@@ -8,6 +9,8 @@ export default class ThreejsSystemInitScene {
     camera.position.set(0, 0.18945660456909422, 0.3720044393765124)
     camera.lookAt(new THREE.Vector3(0, 0, 0))
     var render = new THREE.WebGLRenderer();
+    render.shadowMap.enabled = true;
+    render.shadowMap.type = THREE.PCFSoftShadowMap;
     render.setSize( window.innerWidth, window.innerHeight );
     document.body.appendChild( render.domElement );
     camera.position.z = 0.3;
