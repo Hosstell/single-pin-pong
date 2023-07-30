@@ -5,11 +5,10 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server, {cors: {origin: "*"}});
 
-app.use(express.static(__dirname + '/game'))
-app.use(express.static(__dirname + '/'))
+app.use(express.static(__dirname + '/static'))
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/game/index.html');
+  res.sendFile(__dirname + '/static/index.html');
 });
 
 io.on('connection', (socket) => {
