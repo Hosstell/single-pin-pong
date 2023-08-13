@@ -5,6 +5,7 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server, {cors: {origin: "*"}});
 
+const PORT = 3000
 
 function getLocalIP() {
   const { networkInterfaces } = require('os');
@@ -28,19 +29,29 @@ app.get('/download-app', (req, res) => {
   res.send(process.env.ANDROID_APP_URL)
 });
 
-app.get('/ip', (req, res) => {
-  res.send(getLocalIP())
+app.get('/host', (req, res) => {
+  const host = `${getLocalIP()}:${PORT}`
+  res.send(host)
 });
 
-io.on('connection', (socket) => {
-  console.log('a user connected');
+const gameConnections = {
 
-  // socket.on("send_accelerometer_data", data => {
-  //   io.emit("get_accelerometer_data", data)
-  // })
+}
+
+io.on('connection', (socket) => {
+
+  if (socket.request._query['gameId']) {
+    gameConnections[socket.request._query['gameId']] = socket
+    console.log('Browser connected');
+  } else {
+    console.log('Smartphone connected');
+  }
 
   socket.on("send_gyroscope_data", data => {
-    io.emit("get_gyroscope_data", data)
+    const targetSocket = gameConnections[data.gameId]
+    if (targetSocket) {
+      targetSocket.emit("get_gyroscope_data", data.data)
+    }
   })
 
   socket.on('disconnect', () => {
@@ -48,6 +59,6 @@ io.on('connection', (socket) => {
   });
 });
 
-server.listen(3000, () => {
+server.listen(PORT, () => {
   console.log('listening on *:3000');
 });

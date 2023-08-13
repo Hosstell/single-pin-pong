@@ -1,5 +1,7 @@
 const data = {
   socket: undefined,
+  gameId: undefined,
+  gameIdUrl: undefined,
   gyroscopeActions: [],
   accelerometerActions: [],
   physics: undefined,
