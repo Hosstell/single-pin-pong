@@ -8,7 +8,7 @@ WORKDIR /project
 COPY . .
 
 WORKDIR /project/game
-RUN npm i
+RUN npm i --force
 RUN npx vite build
 
 RUN cp -r /project/game/dist/* /project/server/static

@@ -3,23 +3,18 @@ import data from "../data";
 import ExpandMoreOutlined from '@material-ui/icons/ExpandMoreOutlined';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import QRCode from "qrcode"
+import axios from 'axios'
 
 export default function QRConnection() {
   const [open, setOpen] = useState(true)
   const [qrCodeImage, setQRCodeImage] = useState(null)
-  const [host, setHost] = useState(null)
 
   useEffect(() => {
-    fetch('/host').then(res => res.text()).then(setHost)
-  }, [])
-
-  useEffect(() => {
-    if (host && data.gameId) {
-      const dataUrl = `${window.location.protocol}//${host}|${data.gameId}`
-      console.log(dataUrl)
+    if (data.gameId) {
+      const dataUrl = `${data.backendUrl}|${data.gameId}`
       QRCode.toDataURL(dataUrl).then(setQRCodeImage)
     }
-  }, [host, data.gameId])
+  }, [data.gameId])
 
   return (
     <div style={{

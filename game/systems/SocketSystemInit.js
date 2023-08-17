@@ -6,6 +6,6 @@ export default class SocketSystemInit {
   init() {
     data.gameId = localStorage.getItem("gameId") || uuidv4()
     localStorage.setItem("gameId", data.gameId)
-    data.socket = io.connect('http://localhost:3000/', { query: `gameId=${data.gameId}` });
+    data.socket = io.connect(data.backendUrl, { query: `gameId=${data.gameId}` });
   }
 }

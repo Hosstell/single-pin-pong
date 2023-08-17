@@ -1,5 +1,8 @@
 const express = require('express');
 const app = express();
+var cors = require('cors')
+app.use(cors())
+
 const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
@@ -26,6 +29,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/download-app', (req, res) => {
+
   res.send(process.env.ANDROID_APP_URL)
 });
 
@@ -59,6 +63,6 @@ io.on('connection', (socket) => {
   });
 });
 
-server.listen(PORT, () => {
+server.listen(PORT, '0.0.0.0',() => {
   console.log('listening on *:3000');
 });
