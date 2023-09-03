@@ -58,6 +58,13 @@ io.on('connection', (socket) => {
     }
   })
 
+  socket.on('reset_rocket_position', data => {
+    const targetSocket = gameConnections[data.gameId]
+    if (targetSocket) {
+      targetSocket.emit("reset_rocket_position")
+    }
+  })
+
   socket.on('disconnect', () => {
     console.log('user disconnected');
   });

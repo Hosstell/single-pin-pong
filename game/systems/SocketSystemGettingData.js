@@ -8,5 +8,10 @@ export default class SocketSystemGettingData {
     data.socket.on("get_accelerometer_data", coords => {
       data.accelerometerActions.push(coords)
     })
+    data.socket.on("reset_rocket_position", () => {
+      if (data.threejs.objects.rocket) {
+        data.threejs.objects.rocket.children[0].rotation.set(0,0,0)
+      }
+    })
   }
 }
