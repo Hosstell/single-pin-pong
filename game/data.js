@@ -1,3 +1,5 @@
+import * as THREE from "three";
+
 const data = {
   backendUrl: import.meta.env.VITE_BACKEND_HOST || window.location.href,
   socket: undefined,
@@ -5,7 +7,10 @@ const data = {
   gameIdUrl: undefined,
   gyroscopeActions: [],
   accelerometerActions: [],
-  physics: undefined,
+  physics: {
+    gravity: new THREE.Vector3(0, -0.00009, 0),
+    ballDirection: new THREE.Vector3(0, 0, 0)
+  },
   threejs: {
     scene: undefined,
     camera: undefined,

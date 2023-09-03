@@ -9,8 +9,7 @@ export default class ThreejsSystemPhysicsInit2 {
   constructor() {
     this.ball = null
     this.rocket = null
-    this.gravity = new THREE.Vector3(0, -0.00009, 0)
-    this.ballDirection = new THREE.Vector3(0, 0, 0)
+    this.gravity = null
   }
 
   async init() {
@@ -18,14 +17,15 @@ export default class ThreejsSystemPhysicsInit2 {
 
     this.ball = data.threejs.objects.ball
     this.rocket = data.threejs.objects.rocket
+    this.gravity = data.physics.gravity
   }
 
   run() {
     if (!this.ball || !this.rocket) return;
 
     this.physicsStep()
-    this.ballDirection.add(this.gravity)
-    this.ball.position.add(this.ballDirection)
+    data.physics.ballDirection.add(this.gravity)
+    this.ball.position.add(data.physics.ballDirection)
   }
 
   physicsStep() {
@@ -51,9 +51,9 @@ export default class ThreejsSystemPhysicsInit2 {
         c.copy(a).add(b);
         c.sub(a)
 
-        this.ballDirection.copy(c)
-        this.ballDirection.normalize()
-        this.ballDirection.multiplyScalar(0.004)
+        data.physics.ballDirection.copy(c)
+        data.physics.ballDirection.normalize()
+        data.physics.ballDirection.multiplyScalar(0.004)
       }
     }
   }
