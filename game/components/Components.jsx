@@ -12,12 +12,12 @@ export default function Components() {
             top: 10,
             display: 'flex'
         }}>
-            <div style={{padding: 10}}>
-                <QRConnection></QRConnection>
-            </div>
-            <div style={{padding: 10}}>
-              <AppDownloadQR></AppDownloadQR>
-            </div>
+          <div style={{padding: 10}}>
+            <AppDownloadQR></AppDownloadQR>
+          </div>
+          <div style={{padding: 10}}>
+            <QRConnection></QRConnection>
+          </div>
         </div>
     )
 }

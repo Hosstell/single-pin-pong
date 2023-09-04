@@ -24,11 +24,19 @@ export default function AppDownloadQR() {
     <div style={{
       backgroundColor: "white",
       borderRadius: "10px",
-      width: "200px"
+      width: "168px"
     }}>
-      <div style={{paddingTop: 5, paddingBottom: 5, display: 'flex', margin: "auto", width: "50%"}}>
-        Download APK
-        <div style={{top: -10}}>
+      <div style={{
+        paddingTop: 5,
+        paddingBottom: open ? 1 : 5,
+        display: 'flex',
+        margin: "auto",
+        position: "relative"
+      }}>
+        <div style={{whiteSpace: "nowrap", width: "100%", textAlign: "center"}}>
+          Download APK
+        </div>
+        <div style={{position: "absolute", right: 6}}>
           {open ? (
             <ExpandLessIcon fontSize="small" style={{cursor: "pointer"}} onClick={() => setOpen(false)}/>
           ):(
