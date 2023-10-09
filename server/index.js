@@ -44,6 +44,8 @@ const gameConnections = {
 
 io.on('connection', (socket) => {
 
+  console.log("New socket connection: " + socket.id)
+
   if (socket.request._query['gameId']) {
     gameConnections[socket.request._query['gameId']] = socket
     console.log('Browser connected');
@@ -52,14 +54,21 @@ io.on('connection', (socket) => {
   }
 
   socket.on("send_gyroscope_data", data => {
-    const targetSocket = gameConnections[data.gameId]
+    data = data.split("|")
+    const gameId = data[0]
+    data = {
+      x: Number(data[1]),
+      y: Number(data[2]),
+      z: Number(data[3])
+    }
+    const targetSocket = gameConnections[gameId]
     if (targetSocket) {
-      targetSocket.emit("get_gyroscope_data", data.data)
+      targetSocket.emit("get_gyroscope_data", data)
     }
   })
 
-  socket.on('reset_rocket_position', data => {
-    const targetSocket = gameConnections[data.gameId]
+  socket.on('reset_rocket_position', gameId => {
+    const targetSocket = gameConnections[gameId]
     if (targetSocket) {
       targetSocket.emit("reset_rocket_position")
     }
@@ -70,6 +79,6 @@ io.on('connection', (socket) => {
   });
 });
 
-server.listen(PORT, '0.0.0.0',() => {
+server.listen(PORT,() => {
   console.log('listening on *:3000');
 });

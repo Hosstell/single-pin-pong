@@ -11,7 +11,7 @@ export default function QRConnection() {
 
   useEffect(() => {
     if (data.gameId) {
-      const dataUrl = `${data.backendUrl}|${data.gameId}`
+      const dataUrl = `${data.backendUrl}?gameId=${data.gameId}`
       QRCode.toDataURL(dataUrl).then(setQRCodeImage)
     }
   }, [data.gameId])
@@ -42,7 +42,7 @@ export default function QRConnection() {
       </div>
       {open && (
         <div style={{textAlign: 'center'}}>
-          {qrCodeImage && <img src={qrCodeImage} style={{}}/>}
+          {qrCodeImage && <img src={qrCodeImage} style={{width: "98%"}}/>}
         </div>
       )}
     </div>

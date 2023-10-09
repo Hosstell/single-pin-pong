@@ -46,7 +46,7 @@ export default function AppDownloadQR() {
       </div>
       {open && (
         <div style={{textAlign: 'center'}}>
-          {qrCodeImage && <img src={qrCodeImage} style={{}}/>}
+          {qrCodeImage && <img src={qrCodeImage} style={{width: "98%"}}/>}
         </div>
       )}
     </div>
