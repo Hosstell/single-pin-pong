@@ -28,11 +28,6 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/static/index.html');
 });
 
-app.get('/download-app', (req, res) => {
-
-  res.send(process.env.ANDROID_APP_URL)
-});
-
 app.get('/host', (req, res) => {
   const host = `${getLocalIP()}:${PORT}`
   res.send(host)

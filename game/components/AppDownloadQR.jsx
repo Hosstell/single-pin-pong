@@ -8,17 +8,10 @@ import axios from 'axios'
 export default function AppDownloadQR() {
   const [open, setOpen] = useState(true)
   const [qrCodeImage, setQRCodeImage] = useState(null)
-  const [url, setUrl] = useState(null)
 
   useEffect(() => {
-    axios.get(`${data.backendUrl}download-app`).then(res => res.data).then(setUrl)
+    QRCode.toDataURL(`${data.backendUrl}app.apk`).then(setQRCodeImage)
   }, [])
-
-  useEffect(() => {
-    if (url) {
-      QRCode.toDataURL(url).then(setQRCodeImage)
-    }
-  }, [url])
 
   return (
     <div style={{
