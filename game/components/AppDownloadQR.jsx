@@ -10,7 +10,7 @@ export default function AppDownloadQR() {
   const [qrCodeImage, setQRCodeImage] = useState(null)
 
   useEffect(() => {
-    QRCode.toDataURL(`${data.backendUrl}app.apk`).then(setQRCodeImage)
+    QRCode.toDataURL(`${window.location.href}app.apk`).then(setQRCodeImage)
   }, [])
 
   return (
