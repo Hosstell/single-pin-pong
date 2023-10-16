@@ -20,3 +20,5 @@ docker image push $USERNAME/single-pin-pong:latest
 echo "--- Deploying ${VERSION} version of single-pin-pong image"
 docker image tag single-pin-pong $USERNAME/single-pin-pong:${VERSION}
 docker image push $USERNAME/single-pin-pong:${VERSION}
+
+echo "--- New image is built (${VERSION}v.)"
