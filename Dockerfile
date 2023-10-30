@@ -14,7 +14,7 @@ WORKDIR /project/game
 RUN npm i --force
 RUN npx vite build
 
-RUN mkdir /project/server/static
+RUN mkdir -p /project/server/static/objects/rocket
 RUN cp -r /project/game/dist/* /project/server/static
 RUN cp -r /project/game/objects/* /project/server/static/objects/rocket
 RUN cp /project/client/app.apk /project/server/static/app.apk
