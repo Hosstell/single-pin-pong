@@ -5,7 +5,7 @@ VERSION=$(cat version.txt)
 docker manifest inspect $USERNAME/single-pin-pong:$VERSION > /dev/null
 if [ $? -eq 0 ]; then
   echo "--- ${VERSION} version already exists. Update version in version.txt in project root"
-  exit 0
+  exit 1
 fi
 
 set -e

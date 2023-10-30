@@ -16,7 +16,7 @@ RUN npx vite build
 
 RUN mkdir /project/server/static
 RUN cp -r /project/game/dist/* /project/server/static
-RUN cp -r /project/game/objects/* /project/server/static
+RUN cp -r /project/game/objects/* /project/server/static/objects
 RUN cp /project/client/app.apk /project/server/static/app.apk
 
 WORKDIR /project/server
