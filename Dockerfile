@@ -7,6 +7,9 @@ EXPOSE 3000
 WORKDIR /project
 COPY . .
 
+WORKDIR /project/server
+RUN npm i
+
 WORKDIR /project/game
 RUN npm i --force
 RUN npx vite build
